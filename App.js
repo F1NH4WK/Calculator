@@ -2,14 +2,31 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import AwesomeButton from 'react-native-really-awesome-button';
 import { Ionicons } from '@expo/vector-icons'; 
+import { useState } from 'react';
+
+// LOCAL IMPORTS
+import Buttons from './components/Buttons';
 
 
 export default function App() {
+
+  const [calculus, setCalculus] = useState({
+    firstNumber: '',
+    operation: '',
+    secondsNumber: '',
+    result: '',
+  })
+
+
+  const chars = [7,8,9, 'x', 4, 5, 6, '-', 1, 2, 3, '+']
+
+  
+
   return (
     <View style={styles.container}>
       <StatusBar style="auto"/>
       <View style = {styles.screen}>
-        <Text style = {{color: 'white', fontSize: 30}}>202020</Text>
+        <Text style = {styles.textScreen}>202020</Text>
       </View>
       <View style = {styles.calculatorGroup}>
         <View style = {styles.calculatorStyle}>
@@ -19,10 +36,10 @@ export default function App() {
           <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#fd6680'}>/</AwesomeButton>
         </View>
         <View style = {styles.calculatorStyle}>
-          <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#504c4f'} textColor = {'white'}>7</AwesomeButton>
-          <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#504c4f'} textColor = {'white'}>8</AwesomeButton>
-          <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#504c4f'} textColor = {'white'}>9</AwesomeButton>
-          <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#fd6680'} textColor = {'white'}>x</AwesomeButton>
+        <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#504c4f'} textColor = {'white'} onPress = {() => {}}>7</AwesomeButton>
+        <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#504c4f'} textColor = {'white'}>8</AwesomeButton>
+        <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#504c4f'} textColor = {'white'}>9</AwesomeButton>
+        <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#fd6680'}>x</AwesomeButton>
         </View>
         <View style = {styles.calculatorStyle}>
           <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#504c4f'} textColor = {'white'}>4</AwesomeButton>
@@ -55,34 +72,37 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     // color: #272529, #504c4f, #fd6680
   },
+
   screen: {
     height: '30%',
     width: '100%',
     justifyContent: 'flex-end',
     alignItems: 'flex-end',
-    // borderWidth: 2,
-    // borderColor: 'white',
     padding: 15,
     marginBottom: 20
   },
+
   calculatorStyle: {
     flexDirection: 'row',
     width: '100%',
     justifyContent: 'space-between',
-    // borderWidth: 2,
-    // borderColor: 'white',
     height: '18%',
     alignItems: 'center',
     padding: 5
     
   },
 
+  textScreen:{
+    fontWeight: '300',
+    color: 'green',
+    fontSize: 35,
+  },  
+
   calculatorGroup:{
     flex: 1,
-    borderWidth: 2,
-    borderColor: 'red',
     alignItems: 'center',
     justifyContent: 'center',
     padding: 20,
+    marginLeft: 10
   }
 });
