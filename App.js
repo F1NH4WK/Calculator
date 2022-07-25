@@ -5,7 +5,6 @@ import { Ionicons } from '@expo/vector-icons';
 import { useState } from 'react';
 
 // LOCAL IMPORTS
-import Buttons from './components/Buttons';
 
 
 export default function App() {
@@ -13,32 +12,62 @@ export default function App() {
   const [calculus, setCalculus] = useState({
     firstNumber: '',
     operation: '',
-    secondsNumber: '',
+    secondNumber: '',
     result: '',
   })
+  
 
 
   const chars = [7,8,9, 'x', 4, 5, 6, '-', 1, 2, 3, '+']
 
-  
+  const result = () => {
+
+    let resultado = 0;
+
+    switch(calculus.operation){
+      case 'x':
+         resultado = Number(calculus.firstNumber) * Number(calculus.secondNumber)
+      case '+':
+        resultado  = Number(calculus.firstNumber) + Number(calculus.secondNumber)
+      case '-':
+        resultado  = Number(calculus.firstNumber) - Number(calculus.secondNumber)
+      case '/':
+        resultado  = Number(calculus.firstNumber) / Number(calculus.secondNumber)
+    }
+    calculus.firstNumber = calculus.secondNumber = calculus.operation = '';
+    calculus.result = resultado;
+    setCalculus(calculus);
+  }
+
+  const conta = num => {
+    if (calculus.operation == ""){
+      calculus.firstNumber = calculus.firstNumber + num
+      console.log(calculus.firstNumber)
+    }
+    else{
+      calculus.secondNumber = calculus.secondNumber + num
+      console.log(calculus.secondNumber)
+    }
+
+  }
 
   return (
     <View style={styles.container}>
       <StatusBar style="auto"/>
       <View style = {styles.screen}>
-        <Text style = {styles.textScreen}>202020</Text>
+        <Text style = {styles.textScreen}>{calculus.result}</Text>
       </View>
       <View style = {styles.calculatorGroup}>
         <View style = {styles.calculatorStyle}>
           <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'black'}>C</AwesomeButton>
           <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'black'}>+/-</AwesomeButton>
           <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'black'}>%</AwesomeButton>
-          <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#fd6680'}>/</AwesomeButton>
+          <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#fd6680'} onPress = {() => {calculus.operation = '/'; setCalculus((calculus))}}>/</AwesomeButton>
         </View>
         <View style = {styles.calculatorStyle}>
-        <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#504c4f'} textColor = {'white'} onPress = {() => {}}>7</AwesomeButton>
-        <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#504c4f'} textColor = {'white'}>8</AwesomeButton>
-        <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#504c4f'} textColor = {'white'}>9</AwesomeButton>
+        <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#504c4f'} textColor = {'white'} onPress = {() => conta(7)}>7</AwesomeButton>
+        <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#504c4f'} textColor = {'white'} onPress = {() => conta(8)}>8</AwesomeButton>
+        <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#504c4f'} textColor = {'white'} onPress = {() => conta(9)}>9</AwesomeButton>
         <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#fd6680'}>x</AwesomeButton>
         </View>
         <View style = {styles.calculatorStyle}>
@@ -57,7 +86,7 @@ export default function App() {
           <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#504c4f'} textColor = {'white'}>.</AwesomeButton>
           <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#504c4f'} textColor = {'white'}>0</AwesomeButton>
           <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#504c4f'} textColor = {'white'}><Ionicons name='backspace' size={23} color = 'white'/></AwesomeButton>
-          <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#fd6680'}>=</AwesomeButton>
+          <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#fd6680'} onPress = {() => result()}>=</AwesomeButton>
         </View>
       </View>
     </View>
