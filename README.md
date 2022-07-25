@@ -19,7 +19,7 @@ A simple calculator, it calculates the operation between two numbers.<br />
 
 
 ## What's the prupose of this project?
-I developed this simple app aiming to improve my mobile skils with React Native.
+I made this simple app by aiming to improve my mobile app development skils with React Native.
 
 ## Screenshots
 WIP
