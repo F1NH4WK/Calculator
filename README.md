@@ -22,7 +22,7 @@ A simple calculator, it calculates the operation between two numbers.<br />
 I made this simple app by aiming to improve my mobile app development skils with React Native.
 
 ## Screenshots
-WIP
+<img src = "https://i.imgur.com/0tEm9LF.gif" height = 400/>
 
 ## Video(s) I used:
 <div align="center">
