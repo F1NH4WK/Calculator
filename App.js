@@ -14,21 +14,25 @@ export default function App() {
     operation: '',
     result: '',
   })
+  let [operation, setOperation] = useState('')
 
   const result = () => {
 
     let resultado = 0;
-    console.log(parseInt(firstNumber))
+    num1 = parseInt(firstNumber);
+    num2 = parseInt(secondNumber)
 
-    switch(calculus.operation){
-      case 'x':
-         resultado = firstNumber * secondNumber
-      case '+':
-        resultado  = Number(firstNumber) + Number(secondNumber)
-      case '-':
-        resultado  = Number(firstNumber) - Number(secondNumber)
-      case '/':
-        resultado  = firstNumber * secondNumber
+    if (operation == '+'){
+      resultado = num1 + num2
+    }
+    if (operation == '-'){
+      resultado = num1 - num2
+    }
+    if (operation == '/'){
+      resultado = num1 / num2
+    }
+    if (operation == 'x'){
+      resultado = num1 * num2
     }
 
     console.log(resultado)
@@ -39,20 +43,20 @@ export default function App() {
 
   const clear = () => {
     setCalculus({
-      operation: '',
       result: '',
     })
+    setOperation('')
     setFN('')
     setSN('')
   }
 
   const conta = num => {
-    if (calculus.operation == ""){    
+    if (operation == ""){    
       setFN(firstNumber += num)
       console.log(firstNumber)
     }
     else{
-      console.log(calculus.operation)
+      console.log(operation)
       setSN(secondNumber += num)
       console.log(secondNumber)
     }
@@ -70,25 +74,25 @@ export default function App() {
           <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'black'} onPress = {() => clear()}>C</AwesomeButton>
           <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'black'}>+/-</AwesomeButton>
           <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'black'}>%</AwesomeButton>
-          <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#fd6680'} onPress = {() => {calculus.operation = '/'; setCalculus((calculus))}}>/</AwesomeButton>
+          <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#fd6680'} onPress = {() => setOperation('/')}>/</AwesomeButton>
         </View>
         <View style = {styles.calculatorStyle}>
         <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#504c4f'} textColor = {'white'} onPress = {() => conta("7")}>7</AwesomeButton>
         <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#504c4f'} textColor = {'white'} onPress = {() => conta("8")}>8</AwesomeButton>
         <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#504c4f'} textColor = {'white'} onPress = {() => conta("9")}>9</AwesomeButton>
-        <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#fd6680'} onPress = {() => {calculus.operation = 'x'; setCalculus((calculus))}}>x</AwesomeButton>
+        <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#fd6680'} onPress = {() => setOperation('x')}>x</AwesomeButton>
         </View>
         <View style = {styles.calculatorStyle}>
           <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#504c4f'} textColor = {'white'} onPress = {() => conta('4')}>4</AwesomeButton>
           <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#504c4f'} textColor = {'white'} onPress = {() => conta('5')}>5</AwesomeButton>
           <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#504c4f'} textColor = {'white'} onPress = {() => conta('6')}>6</AwesomeButton>
-          <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#fd6680'} onPress = {() => {calculus.operation = '-'; setCalculus((calculus)); console.log(calculus.operation)}}>-</AwesomeButton>
+          <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#fd6680'} onPress = {() => setOperation('-')}>-</AwesomeButton>
         </View>
         <View style = {styles.calculatorStyle}>
           <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#504c4f'} textColor = {'white'} onPress = {() => conta('1')}>1</AwesomeButton>
           <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#504c4f'} textColor = {'white'} onPress = {() => conta('2')}>2</AwesomeButton>
           <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#504c4f'} textColor = {'white'} onPress = {() => conta('3')}>3</AwesomeButton>
-          <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#fd6680'} onPress = {() => {calculus.operation = '+'; setCalculus((calculus))}}>+</AwesomeButton>
+          <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#fd6680'} onPress = {() => setOperation('+')}>+</AwesomeButton>
         </View>
         <View style = {styles.calculatorStyle}>
           <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#504c4f'} textColor = {'white'} onPress = {() => conta('.')}>.</AwesomeButton>
