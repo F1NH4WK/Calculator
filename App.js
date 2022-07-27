@@ -13,6 +13,8 @@ export default function App() {
   let [calculus, setCalculus] = useState('')
   let [operation, setOperation] = useState('')
 
+  const numeros = [7, 8, 9, 'x', 4, 5, 6, '-', 3, 2, 1, '+']
+
   const result = () => {
 
     let resultado = 0;
@@ -56,36 +58,73 @@ export default function App() {
         <Text style = {styles.textScreen}>{calculus}</Text>
       </View>
       <View style = {styles.calculatorGroup}>
+
         <View style = {styles.calculatorStyle}>
           <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'black'} onPress = {() => clear()}>C</AwesomeButton>
           <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'black'}>+/-</AwesomeButton>
           <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'black'}>%</AwesomeButton>
           <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#fd6680'} onPress = {() => setOperation('/')}>/</AwesomeButton>
         </View>
+
         <View style = {styles.calculatorStyle}>
-          <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#504c4f'} textColor = {'white'} onPress = {() => conta("7")}>7</AwesomeButton>
-          <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#504c4f'} textColor = {'white'} onPress = {() => conta("8")}>8</AwesomeButton>
-          <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#504c4f'} textColor = {'white'} onPress = {() => conta("9")}>9</AwesomeButton>
-          <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#fd6680'} onPress = {() => setOperation('x')}>x</AwesomeButton>
+          {numeros.slice(0, 4).map(i => 
+            !isNaN(i)?
+            <AwesomeButton borderRadius={18} width={63} textSize = {23} 
+            raiseLevel = {0.1} backgroundColor = {'#504c4f'} 
+            onPress = {() => conta(i.toString())}>
+              {i.toString()}
+            </AwesomeButton>
+            :
+            <AwesomeButton borderRadius={18} width={63} textSize = {23} 
+            raiseLevel = {0.1} backgroundColor = {'#fd6680'} 
+            onPress = {() => setOperation(i.toString())}>
+              {i.toString()}
+            </AwesomeButton>
+          )}
         </View>
+
         <View style = {styles.calculatorStyle}>
-          <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#504c4f'} textColor = {'white'} onPress = {() => conta('4')}>4</AwesomeButton>
-          <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#504c4f'} textColor = {'white'} onPress = {() => conta('5')}>5</AwesomeButton>
-          <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#504c4f'} textColor = {'white'} onPress = {() => conta('6')}>6</AwesomeButton>
-          <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#fd6680'} onPress = {() => setOperation('-')}>-</AwesomeButton>
+          {numeros.slice(4, 8).map(i => 
+            !isNaN(i)?
+            <AwesomeButton borderRadius={18} width={63} textSize = {23} 
+            raiseLevel = {0.1} backgroundColor = {'#504c4f'} 
+            onPress = {() => conta(i.toString())}>
+              {i.toString()}
+            </AwesomeButton>
+            :
+            <AwesomeButton borderRadius={18} width={63} textSize = {23} 
+            raiseLevel = {0.1} backgroundColor = {'#fd6680'} 
+            onPress = {() => setOperation(i.toString())}>
+              {i.toString()}
+            </AwesomeButton>
+          )}
         </View>
+
         <View style = {styles.calculatorStyle}>
-          <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#504c4f'} textColor = {'white'} onPress = {() => conta('1')}>1</AwesomeButton>
-          <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#504c4f'} textColor = {'white'} onPress = {() => conta('2')}>2</AwesomeButton>
-          <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#504c4f'} textColor = {'white'} onPress = {() => conta('3')}>3</AwesomeButton>
-          <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#fd6680'} onPress = {() => setOperation('+')}>+</AwesomeButton>
+          {numeros.slice(8, 12).map(i => 
+            !isNaN(i)?
+            <AwesomeButton borderRadius={18} width={63} textSize = {23} 
+            raiseLevel = {0.1} backgroundColor = {'#504c4f'} 
+            onPress = {() => conta(i.toString())}>
+              {i.toString()}
+            </AwesomeButton>
+            :
+            <AwesomeButton borderRadius={18} width={63} textSize = {23} 
+            raiseLevel = {0.1} backgroundColor = {'#fd6680'} 
+            onPress = {() => setOperation(i.toString())}>
+              {i.toString()}
+            </AwesomeButton>
+          )}
         </View>
+        
+      
+
         <View style = {styles.calculatorStyle}>
-          <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#504c4f'} textColor = {'white'} onPress = {() => conta('.')}>.</AwesomeButton>
-          <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#504c4f'} textColor = {'white'} onPress = {() => conta('0')}>0</AwesomeButton>
+          <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#504c4f'} onPress = {() => conta('.')}>.</AwesomeButton>
+          <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#504c4f'} onPress = {() => conta('0')}>0</AwesomeButton>
           <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#504c4f'} textColor = {'white'}><Ionicons name='backspace' size={23} color = 'white'/></AwesomeButton>
           <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#fd6680'} onPress = {() => result()}>=</AwesomeButton>
-        </View>
+          </View> 
       </View>
     </View>
   );
