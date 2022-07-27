@@ -10,7 +10,6 @@ export default function App() {
 
   let [firstNumber, setFN] = useState('');
   let [secondNumber, setSN] = useState('');
-  let [calculus, setCalculus] = useState('')
   let [operation, setOperation] = useState('')
 
   const numeros = [7, 8, 9, 'x', 4, 5, 6, '-', 3, 2, 1, '+']
@@ -19,26 +18,18 @@ export default function App() {
 
     let resultado = 0;
 
-    if (operation == '+'){
-      resultado = Number(firstNumber) + Number(secondNumber)
-    }
-    if (operation == '-'){
-      resultado = firstNumber - secondNumber
-    }
-    if (operation == '/'){
-      resultado = firstNumber / secondNumber
-    }
-    if (operation == 'x'){
-      resultado = firstNumber * secondNumber
-    }
+    if (operation == '+'){resultado = Number(firstNumber) + Number(secondNumber)}
 
+    if (operation == '-'){resultado = firstNumber - secondNumber}
+
+    if (operation == '/'){resultado = firstNumber / secondNumber}
+
+    if (operation == 'x'){resultado = firstNumber * secondNumber}
     clear();
-    setCalculus(resultado);
     setFN(resultado)
   }
 
   const clear = () => {
-    setCalculus('')
     setOperation('')
     setFN('')
     setSN('')
@@ -51,11 +42,26 @@ export default function App() {
     setSN(secondNumber += num)
   }
 
+  const remover = () => {
+    operation == ""?
+    setFN(firstNumber = firstNumber.slice(0, firstNumber.length-1))
+    :
+    setSN(secondNumber = secondNumber.slice(0, secondNumber.length-1))
+  }
+
   return (
     <View style={styles.container}>
       <StatusBar style="auto"/>
       <View style = {styles.screen}>
-        <Text style = {styles.textScreen}>{calculus}</Text>
+        {operation == ""?
+          <Text style = {styles.textScreen}>{firstNumber}</Text>
+          :
+          <View>
+            <Text style = {styles.textScreenHide}>{firstNumber.toString() + " " + operation}</Text>
+            <Text style = {styles.textScreen}>{secondNumber}</Text>
+          </View>
+          
+          }
       </View>
       <View style = {styles.calculatorGroup}>
 
@@ -117,12 +123,12 @@ export default function App() {
           )}
         </View>
         
-      
-
         <View style = {styles.calculatorStyle}>
           <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#504c4f'} onPress = {() => conta('.')}>.</AwesomeButton>
           <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#504c4f'} onPress = {() => conta('0')}>0</AwesomeButton>
-          <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#504c4f'} textColor = {'white'}><Ionicons name='backspace' size={23} color = 'white'/></AwesomeButton>
+          <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#504c4f'}  onPress = {() => remover()}>
+            <Ionicons name='backspace' size={23} color = 'white'/>
+          </AwesomeButton>
           <AwesomeButton borderRadius={18} width={63} textSize = {23} raiseLevel = {0.1} backgroundColor = {'#fd6680'} onPress = {() => result()}>=</AwesomeButton>
           </View> 
       </View>
@@ -160,9 +166,16 @@ const styles = StyleSheet.create({
 
   textScreen:{
     fontWeight: '300',
-    color: 'green',
+    color: 'white',
     fontSize: 35,
+    alignSelf: 'flex-end'
   },  
+
+  textScreenHide: {
+    fontWeight: '300',
+    color: 'gray',
+    fontSize: 28
+  },
 
   calculatorGroup:{
     flex: 1,
