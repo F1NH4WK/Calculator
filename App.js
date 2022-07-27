@@ -1,10 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 import AwesomeButton from 'react-native-really-awesome-button';
 import { Ionicons } from '@expo/vector-icons'; 
 import { useState } from 'react';
 
 // LOCAL IMPORTS
+import styles from './styles/styles';
 
 export default function App() {
 
@@ -26,7 +27,7 @@ export default function App() {
 
     if (operation == 'x'){resultado = firstNumber * secondNumber}
     clear();
-    setFN(resultado)
+    setFN(resultado.toString())
   }
 
   const clear = () => {
@@ -135,53 +136,3 @@ export default function App() {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-
-  container: {
-    flex: 1,
-    backgroundColor: '#272529',
-    alignItems: 'center',
-    // color: #272529, #504c4f, #fd6680
-  },
-
-  screen: {
-    height: '30%',
-    width: '100%',
-    justifyContent: 'flex-end',
-    alignItems: 'flex-end',
-    padding: 15,
-    marginBottom: 20
-  },
-
-  calculatorStyle: {
-    flexDirection: 'row',
-    width: '100%',
-    justifyContent: 'space-between',
-    height: '18%',
-    alignItems: 'center',
-    padding: 5
-    
-  },
-
-  textScreen:{
-    fontWeight: '300',
-    color: 'white',
-    fontSize: 35,
-    alignSelf: 'flex-end'
-  },  
-
-  textScreenHide: {
-    fontWeight: '300',
-    color: 'gray',
-    fontSize: 28
-  },
-
-  calculatorGroup:{
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 20,
-    marginLeft: 10
-  }
-});
