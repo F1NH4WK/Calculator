@@ -7,7 +7,7 @@
 
 <h3 align="center"><strong>Calculator</strong></h3>
 <p align="center">
-A simple calculator, it calculates the operation between two numbers.<br />
+A simple calculator, it calculates the operation between numbers.<br />
 <a href="https://github.com/F1NH4WK/Calculator"><strong>⇐ Explore the Docs ⇒</strong></a>
 <br />
 <br />
