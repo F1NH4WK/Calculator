@@ -24,12 +24,6 @@ I made this simple app by aiming to improve my mobile app development skils with
 ## Screenshots
 <img src = "https://i.imgur.com/0tEm9LF.gif" height = 400/>
 
-## Video(s) I used:
-<div align="center">
-<a href = "https://www.youtube.com/watch?v=_fYgGS46h2w&t=66s">
-<img src = "https://i.ytimg.com/vi/_fYgGS46h2w/hqdefault.jpg?sqp=-oaymwEjCPYBEIoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLCBcGq6_Sy-VvfWTmrCcYUV9Th7Ew"/><h4>Build a Calculator | React Native 2022</h4>
-</a>
-</div>
 
 [issues-shield]: https://img.shields.io/github/issues/F1NH4WK/Calculator.svg?style=for-the-badge
 [issues-url]: https://github.com/F1NH4WK/Calculator/issues
