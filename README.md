@@ -24,6 +24,10 @@ I made this simple app by aiming to improve my mobile app development skils with
 ## Screenshots
 <img src = "https://i.imgur.com/0tEm9LF.gif" height = 400/>
 
+## Test it
+
+You can download this app by clicking <strong><a href = "https://exp-shell-app-assets.s3.us-west-1.amazonaws.com/android/%40finhawk/Calculator-2b67b2cb1abe40c99b92e42781071754-signed.apk">HERE</a></strong>.</br>
+Your device may alert you because you are downloading an app that isn't from Play Store, but relax, check the code, it will not get your data.
 
 [issues-shield]: https://img.shields.io/github/issues/F1NH4WK/Calculator.svg?style=for-the-badge
 [issues-url]: https://github.com/F1NH4WK/Calculator/issues
